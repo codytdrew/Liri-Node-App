@@ -3,4 +3,19 @@ require("dotenv").config();
 
 //This variable serves to store the imported keys.js file
 var keys = require("./keys.js");
-var spotify = new spotify(keys.spotify);
+
+//Variable for the method that will request for tracks 
+var Spotify = require('node-spotify-api');
+//Creates a spotify object that can query the spotify API
+var spotify = new Spotify(keys.spotify);
+
+
+//Take in the command line arguments.  Cuts node and file name off of playback
+const userArguments = process.argv.slice(2).join(" ");
+
+spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+    if (err) {
+      return console.log('Error occurred: ' + err);
+    }
+    console.log(data);
+});  
