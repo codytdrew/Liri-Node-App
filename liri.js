@@ -6,6 +6,7 @@ var keys = require("./keys.js");
 
 //Variable for the method that will request for tracks 
 var Spotify = require('node-spotify-api');
+
 //Creates a spotify object that can query the spotify API
 var spotify = new Spotify(keys.spotify);
 
@@ -17,5 +18,7 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, d
     if (err) {
       return console.log('Error occurred: ' + err);
     }
-    console.log(data);
+    console.log(data.tracks.items[0]);
 });  
+
+ 
