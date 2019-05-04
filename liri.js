@@ -17,6 +17,7 @@ var axios = require("axios");
 const userArguments = process.argv.slice(2);
 const searchType = userArguments[0];
 const searchTerm = userArguments.slice(1).join("*");
+const movieTitle = userArguments.slice(1).join("*");
 
 
 switch (searchType) {
@@ -42,7 +43,7 @@ function concert() {
   axios
     .get("https://rest.bandsintown.com/artists/" + searchTerm + "/events?app_id=codingbootcamp")
     .then(function (response) {
-      console.log(response.data);
+      console.log(response.data[0]);
     })
     .catch(function (error) {
       if (error.response) {
@@ -78,7 +79,7 @@ function songId() {
 // When we call "movieFinder" function, we will be provided a list of information pertaining to the movie
 function movieFinder () {
   axios
-  .get("http://www.omdbapi.com/?t=" + searchTerm + "&apikey=e8747782")
+  .get("http://www.omdbapi.com/?t=" + movieTitle + "&apikey=e8747782")
   .then(function (response) {
     console.log(response.data);
   })
@@ -99,6 +100,8 @@ function movieFinder () {
     }
     console.log(error.config);
 }
-// function executeAction {
-// }
+
+// When we call "movieFinder" function, we will be provided a list of information pertaining to the movie
+function executeAction {
+
   )}
