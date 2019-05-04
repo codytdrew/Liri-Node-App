@@ -18,14 +18,6 @@ const userArguments = process.argv.slice(2);
 const searchType = userArguments[0];
 const searchTerm = userArguments.slice(1).join("*");
 
-spotify
-  .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
-  .then(function(data) {
-    console.log(data); 
-  })
-  .catch(function(err) {
-    console.error('Error occurred: ' + err); 
-  });
 
 switch (searchType) {
   case "concert-this":
@@ -73,6 +65,13 @@ function concert() {
 
 // When we call the "songId" function, we will show the song's Artist, Name, A preview link from spotify, and Album
 function songId() {
-
+  spotify
+  .request('https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx')
+  .then(function(data) {
+    console.log(data); 
+  })
+  .catch(function(err) {
+    console.error('Error occurred: ' + err); 
+  });
 }
 
