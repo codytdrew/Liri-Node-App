@@ -21,4 +21,22 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, d
     console.log(data.tracks.items[0]);
 });  
 
+switch (userArguments) {
+  case "concert-this":
+    concert();
+    break;
+  
+  case "spotify-this-song":
+    songId();
+    break;
+
+  case "movie-this":
+    movieFinder();
+    break;
+
+  case "do-what-it-says":
+    executeAction();
+}
+
+function concert ()
  
